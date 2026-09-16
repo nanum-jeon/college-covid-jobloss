@@ -14,7 +14,7 @@ Raw NLSY97 files are not included; the processed analytic data are in `intermedi
 scripts/
   00_setup.R              Loads packages, sets paths, sources src/
   40_mediation_jobloss.R  Fits the mediation models on the 5 imputed data sets
-  44_analysis_jobloss.R   Pools estimates: main and mechanism results
+  44_analysis_jobloss.R   Pools estimates across imputations: main results
 src/
   mediation.R             fit_mediation_models() (EIF-based estimators with SuperLearner)
   analysis.R              Pooling and formatting functions
@@ -37,7 +37,7 @@ source("scripts/44_analysis_jobloss.R")
 ```
 
 Output: `results/covid_jobloss_list.rds` (model estimates) and
-`results/covid_jobloss_results.rds` (pooled main and mechanism results).
+`results/covid_jobloss_results.rds` (pooled main results).
 
 ## Contact
 
