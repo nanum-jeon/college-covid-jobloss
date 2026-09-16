@@ -1,4 +1,4 @@
-# scripts/50_covid_jobloss_alt_moderator_results.R
+# scripts/48_analysis_alt_moderator.R
 # ------------------------------------------------------------
 # Runs main + mechanism analyses, formats outputs, and saves.
 # ------------------------------------------------------------

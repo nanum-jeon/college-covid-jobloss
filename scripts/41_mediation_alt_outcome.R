@@ -1,4 +1,4 @@
-# scripts/44_fit_models.covid_displacement.R
+# scripts/41_mediation_alt_outcome.R
 
 
 ## Covid Displacement 

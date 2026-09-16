@@ -1,4 +1,4 @@
-# scripts/50_covid_jobloss_results.R
+# scripts/44_analysis_jobloss.R
 # ------------------------------------------------------------
 # Runs main + mechanism analyses, formats outputs, and saves.
 # ------------------------------------------------------------

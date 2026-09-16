@@ -1,4 +1,4 @@
-# scripts/52_covid_jobloss_intersectional_results.R
+# scripts/46_analysis_intersectional.R
 # ------------------------------------------------------------
 # Runs main + mechanism analyses, formats outputs, and saves.
 # ------------------------------------------------------------

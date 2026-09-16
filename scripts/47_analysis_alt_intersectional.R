@@ -1,4 +1,4 @@
-# scripts/52_covid_displacement_intersectional_results.R
+# scripts/47_analysis_alt_intersectional.R
 # ------------------------------------------------------------
 # Runs main + mechanism analyses, formats outputs, and saves.
 # ------------------------------------------------------------

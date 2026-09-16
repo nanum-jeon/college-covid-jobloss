@@ -1,4 +1,4 @@
-# scripts/51_covid_displacement_results.R
+# scripts/45_analysis_alt_outcome.R
 # ------------------------------------------------------------
 # Runs main + mechanism analyses, formats outputs, and saves.
 # ------------------------------------------------------------
