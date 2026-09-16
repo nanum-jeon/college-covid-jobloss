@@ -11,10 +11,16 @@ Raw NLSY97 files are not included; the processed analytic data are in `intermedi
 ## Repository structure
 
 ```
-scripts/        00_setup.R and the main analysis scripts
-src/            Helper functions, sourced automatically by 00_setup.R
-intermediate/   Processed analytic data (merged_list.rds)
-data/           Data source information (no raw data)
+scripts/
+  00_setup.R              Loads packages, sets paths, sources src/
+  40_mediation_jobloss.R  Fits the mediation models on the 5 imputed data sets
+  44_analysis_jobloss.R   Pools estimates: main and mechanism results
+src/
+  mediation.R             fit_mediation_models() (EIF-based estimators with SuperLearner)
+  analysis.R              Pooling and formatting functions
+intermediate/
+  merged_list.rds         Processed analytic data (5 multiply imputed data sets)
+data/                     Data source information (no raw data)
 ```
 
 ## How to run
@@ -25,10 +31,9 @@ data/           Data source information (no raw data)
 3. Run:
 
 ```r
-source("scripts/00_setup.R")   # installs/loads packages, creates results/, loads src/
-
-source("scripts/40_mediation_jobloss.R")  # fits mediation models on the 5 imputed data sets
-source("scripts/44_analysis_jobloss.R")   # pools results: main and mechanism analyses
+source("scripts/00_setup.R")
+source("scripts/40_mediation_jobloss.R")
+source("scripts/44_analysis_jobloss.R")
 ```
 
 Output: `results/covid_jobloss_list.rds` (model estimates) and
