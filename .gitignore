@@ -17,7 +17,6 @@ data/*
 *.dat
 *.csv
 
-# Only the two processed analytic files are shared
+# Only the processed analytic file is shared
 *.rds
 !intermediate/merged_list.rds
-!intermediate/non_imputed.rds

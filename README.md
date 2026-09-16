@@ -6,14 +6,14 @@ Nanum Jeon and Jennie E. Brand, "Heterogeneous Effects of Completing College on 
 
 **Data:** National Longitudinal Survey of Youth 1997 (NLSY97), including Round 20 and the
 COVID-19 supplement ([NLS Investigator](https://www.nlsinfo.org/investigator)).
-Raw NLSY97 files are not included; the processed analytic data sets are in `intermediate/`.
+Raw NLSY97 files are not included; the processed analytic data are in `intermediate/`.
 
 ## Repository structure
 
 ```
-scripts/        00_setup.R and the analysis scripts (40_–49_)
+scripts/        00_setup.R and the main analysis scripts
 src/            Helper functions, sourced automatically by 00_setup.R
-intermediate/   Processed analytic data (merged_list.rds, non_imputed.rds)
+intermediate/   Processed analytic data (merged_list.rds)
 data/           Data source information (no raw data)
 ```
 
@@ -27,22 +27,12 @@ data/           Data source information (no raw data)
 ```r
 source("scripts/00_setup.R")   # installs/loads packages, creates results/, loads src/
 
-# Estimate models on the imputed and non-imputed data
-source("scripts/40_mediation_jobloss.R")
-source("scripts/41_mediation_alt_outcome.R")
-source("scripts/42_mediation_non_imputed.R")
-source("scripts/43_mediation_alt_moderator.R")
-
-# Pool and summarize results
-source("scripts/44_analysis_jobloss.R")
-source("scripts/45_analysis_alt_outcome.R")
-source("scripts/46_analysis_intersectional.R")
-source("scripts/47_analysis_alt_intersectional.R")
-source("scripts/48_analysis_alt_moderator.R")
-source("scripts/49_analysis_non_imputed.R")
+source("scripts/40_mediation_jobloss.R")  # fits mediation models on the 5 imputed data sets
+source("scripts/44_analysis_jobloss.R")   # pools results: main and mechanism analyses
 ```
 
-Results are saved as `.rds` files in `results/`.
+Output: `results/covid_jobloss_list.rds` (model estimates) and
+`results/covid_jobloss_results.rds` (pooled main and mechanism results).
 
 ## Contact
 
