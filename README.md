@@ -1,48 +1,48 @@
 # Heterogeneous Effects of Completing College on Reducing COVID-19 Job Loss by Race and Skin Color
 
-Replication code for:
+Replication code and processed analytic data for:
 
 Nanum Jeon and Jennie E. Brand, "Heterogeneous Effects of Completing College on Reducing COVID-19 Job Loss by Race and Skin Color," *Demography*.
 
-**Data:** National Longitudinal Survey of Youth 1997 (NLSY97), including the Round 20
-and COVID-19 supplement data. **No data are included in this repository.**
-NLSY97 data are available from the U.S. Bureau of Labor Statistics via
-[NLS Investigator](https://www.nlsinfo.org/investigator). See `data/README.md` for
-the files the code expects.
+**Data:** National Longitudinal Survey of Youth 1997 (NLSY97), including Round 20 and the
+COVID-19 supplement ([NLS Investigator](https://www.nlsinfo.org/investigator)).
+Raw NLSY97 files are not included; the processed analytic data sets are in `intermediate/`.
 
 ## Repository structure
 
 ```
-scripts/        Numbered analysis pipeline (run in order)
-src/            Helper functions, sourced automatically by scripts/00_setup.R
-data/           Place NLSY97 and auxiliary data here (not included)
-intermediate/   Generated respondent-level files (not included)
+scripts/        00_setup.R and the analysis scripts (40_–49_)
+src/            Helper functions, sourced automatically by 00_setup.R
+intermediate/   Processed analytic data (merged_list.rds, non_imputed.rds)
+data/           Data source information (no raw data)
 ```
 
-`results/`, `results/figure/`, `results/table/`, and `logs/` are created automatically.
+## How to run
 
-## Pipeline
+1. Download or clone this repository.
+2. Open R (4.4) with the working directory set to the repository root
+   (for example, open a new RStudio project here). Paths use `here::here()`.
+3. Run:
 
-| Step | Scripts | Purpose |
-|---|---|---|
-| Setup | `00_setup.R` | Packages, paths, sources `src/` |
-| Cleaning | `10_`–`11_` | Covariates and multiple imputation |
-| Variables | `20_`–`24_` | Outcomes, treatment, mediators, moderators, analytic sample and survey designs |
-| Descriptives | `30_`–`33_` | Descriptive statistics |
-| Analysis | `40_`–`53_` | Mediation/effect estimation, alternative outcomes and moderators, non-imputed models, sensitivity analyses, imputation diagnostics |
-| Figures | `60_`–`68_` | Figures |
-| Tables | `70_`–`78_` | LaTeX tables |
+```r
+source("scripts/00_setup.R")   # installs/loads packages, creates results/, loads src/
 
-## Running
+# Estimate models on the imputed and non-imputed data
+source("scripts/40_mediation_jobloss.R")
+source("scripts/41_mediation_alt_outcome.R")
+source("scripts/42_mediation_non_imputed.R")
+source("scripts/43_mediation_alt_moderator.R")
 
-1. Obtain the NLSY97 data and place the files in `data/` (see `data/README.md`).
-2. Open R in the repository root (paths are resolved with `here::here()`).
-3. Run the scripts in numeric order, e.g. `source("scripts/10_clean_covariates.R")`.
+# Pool and summarize results
+source("scripts/44_analysis_jobloss.R")
+source("scripts/45_analysis_alt_outcome.R")
+source("scripts/46_analysis_intersectional.R")
+source("scripts/47_analysis_alt_intersectional.R")
+source("scripts/48_analysis_alt_moderator.R")
+source("scripts/49_analysis_non_imputed.R")
+```
 
-## Software
-
-R (analyses run with R 4.4). Required packages are listed in `scripts/00_setup.R`
-and installed automatically if missing.
+Results are saved as `.rds` files in `results/`.
 
 ## Contact
 

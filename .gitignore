@@ -4,22 +4,20 @@
 .RData
 .RDataTmp*
 .Ruserdata
-renv/library/
-renv/staging/
 .DS_Store
 
-# Data: NLSY97 files are not redistributed here
+# Outputs created when the code is run
+results/
+logs/
+
+# Raw data are not shared
 data/*
 !data/README.md
-intermediate/*
-!intermediate/README.md
-logs/
-*.rds
-*.RDS
-*.RData
 *.dta
 *.dat
 *.csv
-*.sav
-*.sas7bdat
-*.parquet
+
+# Only the two processed analytic files are shared
+*.rds
+!intermediate/merged_list.rds
+!intermediate/non_imputed.rds
