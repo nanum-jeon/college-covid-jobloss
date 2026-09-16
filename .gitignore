@@ -1,0 +1,25 @@
+# R / RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.RDataTmp*
+.Ruserdata
+renv/library/
+renv/staging/
+.DS_Store
+
+# Data: NLSY97 files are not redistributed here
+data/*
+!data/README.md
+intermediate/*
+!intermediate/README.md
+logs/
+*.rds
+*.RDS
+*.RData
+*.dta
+*.dat
+*.csv
+*.sav
+*.sas7bdat
+*.parquet
